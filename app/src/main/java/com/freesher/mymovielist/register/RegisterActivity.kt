@@ -33,14 +33,14 @@ class RegisterActivity : AppCompatActivity() {
 
     private fun validateEmail(email: String): Boolean {
         return if (email.isEmpty()) {
-            emailEditText.error = "Empty email"
+            emailEditText.error = getString(R.string.empty_email_label)
             false
         } else {
             if (Patterns.EMAIL_ADDRESS.matcher(email).matches()) {
                 emailEditText.error = null
                 true
             } else {
-                emailEditText.error = "Invalid email address"
+                emailEditText.error = getString(R.string.invalid_email_label)
                 false
             }
         }
@@ -50,7 +50,7 @@ class RegisterActivity : AppCompatActivity() {
 
     private fun checkIsPasswordNotEmpty(password: String): Boolean {
         return if (password.isEmpty()) {
-            passwordEditText.error = "Empty password"
+            passwordEditText.error = getString(R.string.empty_password_label)
             false
         } else {
             passwordEditText.error = null

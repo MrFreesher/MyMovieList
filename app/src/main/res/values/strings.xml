@@ -1,3 +1,10 @@
 <resources>
     <string name="app_name">MyMovieList</string>
+    <string name="register_button_label">Create account</string>
+    <string name="password_placeholder">Password</string>
+    <string name="email_placeholder">Email</string>
+    <string name="register_form_description">To create account fill form</string>
+    <string name="empty_email_label">Empty email</string>
+    <string name="empty_password_label">Empty password</string>
+    <string name="invalid_email_label">Invalid email address</string>
 </resources>

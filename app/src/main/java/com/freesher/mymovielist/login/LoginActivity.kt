@@ -1,17 +1,25 @@
 package com.freesher.mymovielist.login
 
+import android.content.Intent
 import android.os.Bundle
 import android.util.Patterns
 import androidx.appcompat.app.AppCompatActivity
+import com.freesher.mymovielist.HomeActivity
 import com.freesher.mymovielist.R
+import com.freesher.mymovielist.register.RegisterActivity
 import com.freesher.mymovielist.utils.toast
+import com.google.firebase.auth.FirebaseAuth
 import kotlinx.android.synthetic.main.activity_login.*
 
 class LoginActivity : AppCompatActivity() {
-
+    private lateinit var firebaseAuth: FirebaseAuth
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_login)
+        firebaseAuth = FirebaseAuth.getInstance()
+        registerText.setOnClickListener {
+            sendToRegisterActivity()
+        }
 
         loginButton.setOnClickListener {
             val email = emailEditText.text.toString().trim()
@@ -19,8 +27,7 @@ class LoginActivity : AppCompatActivity() {
             val isEmailValid = validateEmail(email)
             val isPasswordNotEmpty = checkIsPasswordNotEmpty(password)
             if (isEmailValid && isPasswordNotEmpty) {
-                //   registerUser(email, password)
-                toast("Everything is valid")
+                loginUser(email, password)
             }
         }
     }
@@ -50,5 +57,27 @@ class LoginActivity : AppCompatActivity() {
             passwordEditText.error = null
             true
         }
+    }
+
+    private fun sendToRegisterActivity(){
+        val intent  = Intent(this@LoginActivity,RegisterActivity::class.java)
+        startActivity(intent)
+    }
+
+    private fun loginUser(email:String,password: String){
+        firebaseAuth.signInWithEmailAndPassword(email,password)
+            .addOnCompleteListener(this) { task ->
+
+                if(task.isSuccessful){
+                    val intent = Intent(this@LoginActivity,HomeActivity::class.java).apply {
+                        flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
+                    }
+                    startActivity(intent)
+                }else{
+                    task.exception?.message?.let {
+                        toast(it)
+                    }
+                }
+            }
     }
 }

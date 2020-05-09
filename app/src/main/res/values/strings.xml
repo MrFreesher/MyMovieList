@@ -7,4 +7,6 @@
     <string name="empty_email_label">Empty email</string>
     <string name="empty_password_label">Empty password</string>
     <string name="invalid_email_label">Invalid email address</string>
+    <string name="login_button_label">Login</string>
+    <string name="login_form_description">To login please fill form</string>
 </resources>

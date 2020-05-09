@@ -4,9 +4,9 @@ import android.content.Intent
 import android.os.Bundle
 import android.util.Patterns
 import androidx.appcompat.app.AppCompatActivity
-import com.freesher.mymovielist.HomeActivity
 import com.freesher.mymovielist.R
 import com.freesher.mymovielist.register.RegisterActivity
+import com.freesher.mymovielist.utils.login
 import com.freesher.mymovielist.utils.toast
 import com.google.firebase.auth.FirebaseAuth
 import kotlinx.android.synthetic.main.activity_login.*
@@ -59,21 +59,18 @@ class LoginActivity : AppCompatActivity() {
         }
     }
 
-    private fun sendToRegisterActivity(){
-        val intent  = Intent(this@LoginActivity,RegisterActivity::class.java)
+    private fun sendToRegisterActivity() {
+        val intent = Intent(this@LoginActivity, RegisterActivity::class.java)
         startActivity(intent)
     }
 
-    private fun loginUser(email:String,password: String){
-        firebaseAuth.signInWithEmailAndPassword(email,password)
+    private fun loginUser(email: String, password: String) {
+        firebaseAuth.signInWithEmailAndPassword(email, password)
             .addOnCompleteListener(this) { task ->
 
-                if(task.isSuccessful){
-                    val intent = Intent(this@LoginActivity,HomeActivity::class.java).apply {
-                        flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
-                    }
-                    startActivity(intent)
-                }else{
+                if (task.isSuccessful) {
+                    login()
+                } else {
                     task.exception?.message?.let {
                         toast(it)
                     }

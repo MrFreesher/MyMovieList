@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:id="@+id/home" android:title="Home" />
+    <item android:id="@+id/my_movies" android:title="My movies" />
+    <item android:id="@+id/search_movies" android:title="Search movies" />
+    <item android:id="@+id/add_new_movies" android:title="Add new movies" />
+
+</menu>

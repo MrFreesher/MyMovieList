@@ -1,11 +1,10 @@
 package com.freesher.mymovielist.register
 
-import android.content.Intent
 import android.os.Bundle
 import android.util.Patterns
 import androidx.appcompat.app.AppCompatActivity
-import com.freesher.mymovielist.HomeActivity
 import com.freesher.mymovielist.R
+import com.freesher.mymovielist.utils.login
 import com.freesher.mymovielist.utils.toast
 import com.google.firebase.auth.FirebaseAuth
 import kotlinx.android.synthetic.main.activity_register.*
@@ -29,6 +28,13 @@ class RegisterActivity : AppCompatActivity() {
         }
 
 
+    }
+
+    override fun onStart() {
+        super.onStart()
+        firebaseAuth.currentUser?.let {
+            login()
+        }
     }
 
     private fun validateEmail(email: String): Boolean {
@@ -62,10 +68,7 @@ class RegisterActivity : AppCompatActivity() {
         firebaseAuth.createUserWithEmailAndPassword(email, password)
             .addOnCompleteListener(this) { task ->
                 if (task.isSuccessful) {
-                    val intent = Intent(this@RegisterActivity, HomeActivity::class.java).apply {
-                        flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
-                    }
-                    startActivity(intent)
+                    login()
                 } else {
                     task.exception?.message?.let {
                         toast(it)

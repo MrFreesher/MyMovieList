@@ -1,8 +1,10 @@
 package com.freesher.mymovielist
 
+import android.content.DialogInterface
 import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
+import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import com.freesher.mymovielist.utils.logout
 import com.google.firebase.auth.FirebaseAuth
@@ -23,10 +25,20 @@ class HomeActivity : AppCompatActivity() {
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
-        when(item.itemId){
+        when (item.itemId) {
             R.id.signOut -> {
-                FirebaseAuth.getInstance().signOut()
-                logout()
+
+                AlertDialog.Builder(this)
+                    .setPositiveButton("Yes", DialogInterface.OnClickListener { _, _ ->
+                        FirebaseAuth.getInstance().signOut()
+                        logout()
+
+                    }).setNegativeButton(
+                        "No",
+                        DialogInterface.OnClickListener { dialog, _ -> dialog.dismiss() }).setTitle("Are you sure to logout?")
+                    .show()
+
+
             }
         }
         return super.onOptionsItemSelected(item)

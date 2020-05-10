@@ -5,8 +5,10 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
-import androidx.lifecycle.ViewModelProvider
+import androidx.fragment.app.viewModels
+
 import com.freesher.mymovielist.R
+import com.freesher.mymovielist.data.Movie
 import com.freesher.mymovielist.utils.toast
 import kotlinx.android.synthetic.main.fragment_add_movies.*
 import java.util.*
@@ -15,7 +17,7 @@ import java.util.*
  * A simple [Fragment] subclass.
  */
 class AddMoviesFragment : Fragment() {
-
+    private val viewModel: AddMovieViewModel by viewModels()
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -26,7 +28,13 @@ class AddMoviesFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-
+        viewModel.result.observe(viewLifecycleOwner, androidx.lifecycle.Observer {
+            if(it == null){
+                requireContext().toast("Everything is okay")
+            }else{
+                requireContext().toast(it!!.message!!)
+            }
+        })
         addMoviesButton.setOnClickListener {
             val title = movieTitle.text.toString().trim()
             val year = movieYear.text.toString().trim()
@@ -36,7 +44,15 @@ class AddMoviesFragment : Fragment() {
             val isShortDescriptionNotEmpty = checkIsShortDescriptionNotEmpty(shortDescription)
 
             if (isTitleNotEmpty && isYearValid && isShortDescriptionNotEmpty) {
-                view.context.toast("Everything is valid")
+               val movie = Movie()
+                movie.title = title
+                movie.shortDescription = shortDescription
+                movie.year = year.toInt()
+                viewModel.addMovie(movie)
+
+
+
+
             }
         }
     }

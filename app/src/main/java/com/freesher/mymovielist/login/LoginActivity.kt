@@ -32,6 +32,12 @@ class LoginActivity : AppCompatActivity() {
         }
     }
 
+    override fun onStart() {
+        super.onStart()
+        firebaseAuth.currentUser?.let {
+            login()
+        }
+    }
     private fun validateEmail(email: String): Boolean {
         return if (email.isEmpty()) {
             emailEditText.error = getString(R.string.empty_email_label)

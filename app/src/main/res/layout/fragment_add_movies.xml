@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".add_movies.AddMoviesFragment">
+
+    <LinearLayout
+        android:layout_marginTop="20dp"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" android:orientation="vertical">
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textAlignment="center"
+            android:text="Fill form to add new movies. All fields is required"
+            android:textSize="20sp"
+            android:layout_marginBottom="15dp"/>
+        <EditText
+            android:id="@+id/movieTitle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="15dp"
+            android:layout_marginEnd="15dp"
+            android:hint="Title" />
+        <EditText
+            android:id="@+id/movieYear"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="15dp"
+            android:layout_marginEnd="15dp"
+            android:inputType="date"
+
+            android:maxLength="4"
+
+            android:hint="Year" />
+        <EditText
+            android:id="@+id/movieShortDescription"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="15dp"
+            android:layout_marginEnd="15dp"
+            android:hint="Short Description" />
+<Button
+    android:id="@+id/addMoviesButton"
+    android:layout_marginTop="10dp"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:text="Add movie"
+    style="@style/Widget.AppCompat.Button.Colored"
+    android:layout_gravity="center"
+    android:textSize="14sp" />
+
+    </LinearLayout>
+
+</FrameLayout>

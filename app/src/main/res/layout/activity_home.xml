@@ -12,8 +12,9 @@
        android:layout_width="match_parent"
        android:layout_height="match_parent" >
        <androidx.appcompat.widget.Toolbar
+
            android:layout_width="match_parent"
-           android:layout_height="wrap_content"
+           android:layout_height="?attr/actionBarSize"
            android:id="@+id/toolbar"
            android:background="?colorPrimary" />
        <fragment
@@ -24,6 +25,7 @@
            app:navGraph="@navigation/nav_graph"/>
    </LinearLayout>
     <com.google.android.material.navigation.NavigationView
+        android:layout_marginTop="?attr/actionBarSize"
         android:id="@+id/nav_view"
         android:layout_gravity="start"
         app:menu="@menu/main_menu"

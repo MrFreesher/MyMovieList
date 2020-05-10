@@ -1,5 +1,6 @@
 package com.freesher.mymovielist
 
+import android.content.Context
 import android.content.DialogInterface
 import android.os.Bundle
 import android.view.Menu
@@ -11,6 +12,8 @@ import androidx.navigation.ui.NavigationUI
 import com.freesher.mymovielist.utils.logout
 import com.google.firebase.auth.FirebaseAuth
 import kotlinx.android.synthetic.main.activity_home.*
+import kotlinx.android.synthetic.main.fragment_add_movies.*
+import java.time.Year
 
 
 class HomeActivity : AppCompatActivity() {
@@ -59,4 +62,7 @@ class HomeActivity : AppCompatActivity() {
         }
         return super.onOptionsItemSelected(item)
     }
+
+
+
 }

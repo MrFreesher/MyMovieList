@@ -13,16 +13,14 @@ import com.freesher.mymovielist.utils.toast
 import kotlinx.android.synthetic.main.fragment_add_movies.*
 import java.util.*
 
-/**
- * A simple [Fragment] subclass.
- */
+
 class AddMoviesFragment : Fragment() {
     private val viewModel: AddMovieViewModel by viewModels()
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        // Inflate the layout for this fragment
+
         return inflater.inflate(R.layout.fragment_add_movies, container, false)
     }
 
@@ -30,7 +28,7 @@ class AddMoviesFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
         viewModel.result.observe(viewLifecycleOwner, androidx.lifecycle.Observer {
             if(it == null){
-                requireContext().toast("Everything is okay")
+                requireContext().toast("The movie was added")
             }else{
                 requireContext().toast(it!!.message!!)
             }

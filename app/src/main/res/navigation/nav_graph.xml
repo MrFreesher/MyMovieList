@@ -3,10 +3,15 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/nav_graph"
-    app:startDestination="@id/addMoviesFragment">
+    app:startDestination="@id/movieListFragment">
     <fragment
         android:id="@+id/addMoviesFragment"
         android:name="com.freesher.mymovielist.add_movies.AddMoviesFragment"
         android:label="fragment_add_movies"
         tools:layout="@layout/fragment_add_movies" />
+    <fragment
+        android:id="@+id/movieListFragment"
+        android:name="com.freesher.mymovielist.movielist.MovieListFragment"
+        android:label="fragment_movie_list"
+        tools:layout="@layout/fragment_movie_list" />
 </navigation>

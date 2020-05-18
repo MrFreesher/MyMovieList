@@ -1,4 +1,4 @@
-package com.freesher.mymovielist.movielist
+package com.freesher.mymovielist.movie_list
 
 import android.util.Log
 import androidx.lifecycle.LiveData

@@ -1,12 +1,15 @@
-package com.freesher.mymovielist.movielist
+package com.freesher.mymovielist.movie_list
 
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.navigation.Navigation
 import androidx.recyclerview.widget.RecyclerView
+
 import com.freesher.mymovielist.R
 import com.freesher.mymovielist.data.Movie
-import com.freesher.mymovielist.movielist.MovieListAdapter.MovieViewHolder
+import com.freesher.mymovielist.movie_list.MovieListAdapter.MovieViewHolder
 
 import kotlinx.android.synthetic.main.list_row.view.*
 
@@ -27,6 +30,9 @@ class MovieListAdapter: RecyclerView.Adapter<MovieViewHolder>() {
     override fun onBindViewHolder(holder: MovieViewHolder, position: Int) {
         val movie = movieList[position]
         holder.bindValues(movie.title!!,movie.year!!)
+        holder.setClickListener(movie.id!!)
+
+
     }
 
 
@@ -42,6 +48,14 @@ class MovieListAdapter: RecyclerView.Adapter<MovieViewHolder>() {
         fun bindValues(title:String,year:Int){
             movieTitle.text = title
             movieYear.text = year.toString()
+        }
+        fun setClickListener(id:String){
+            view.setOnClickListener {
+                Log.e("Myapp","Click")
+                val transition = MovieListFragmentDirections.ToMovieDetails(id)
+                Navigation.createNavigateOnClickListener(transition).onClick(view)
+
+            }
         }
     }
 }

@@ -1,19 +1,16 @@
-package com.freesher.mymovielist.movielist
+package com.freesher.mymovielist.movie_list
 
 import android.os.Bundle
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.LinearLayout
-import androidx.appcompat.widget.SearchView
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.Observer
 import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.freesher.mymovielist.R
-import com.freesher.mymovielist.utils.toast
 import kotlinx.android.synthetic.main.fragment_movie_list.*
 
 /**

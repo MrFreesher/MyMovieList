@@ -17,7 +17,8 @@
 
         <action
             android:id="@+id/ToMovieDetails"
-            app:destination="@id/movieDetailsFragment" />
+            app:destination="@id/movieDetailsFragment"
+            app:popUpTo="@id/movieListFragment" />
     </fragment>
     <fragment
         android:id="@+id/movieDetailsFragment"

@@ -4,5 +4,18 @@
     <item
         android:id="@+id/signOut"
         android:title="Sign out"
+        android:visible="true"
         app:showAsAction="never" />
+    <item
+        android:id="@+id/favorite"
+        android:title="Favorite"
+        android:icon="@drawable/ic_favorite_24dp"
+        android:visible="false"
+        app:showAsAction="ifRoom" />
+    <item
+        android:id="@+id/nonfavorite"
+        android:title="Non Favorite"
+        android:visible="false"
+        android:icon="@drawable/ic_nonfavorite_24dp"
+        app:showAsAction="ifRoom" />
 </menu>

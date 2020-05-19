@@ -3,10 +3,42 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/nav_graph"
-    app:startDestination="@id/addMoviesFragment">
+    app:startDestination="@id/movieListFragment">
     <fragment
         android:id="@+id/addMoviesFragment"
         android:name="com.freesher.mymovielist.add_movies.AddMoviesFragment"
-        android:label="fragment_add_movies"
+        android:label="Add new movie"
         tools:layout="@layout/fragment_add_movies" />
+    <fragment
+        android:id="@+id/movieListFragment"
+        android:name="com.freesher.mymovielist.movie_list.MovieListFragment"
+        android:label="Movies"
+        tools:layout="@layout/fragment_movie_list" >
+
+        <action
+            android:id="@+id/ToMovieDetails"
+
+            app:destination="@id/movieDetailsFragment"
+            app:popUpTo="@id/movieListFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/movieDetailsFragment"
+        android:name="com.freesher.mymovielist.movie_details.MovieDetailsFragment"
+        android:label="Movie details"
+        tools:layout="@layout/fragment_movie_details" >
+        <argument
+            android:name="movieId"
+            app:argType="string" />
+    </fragment>
+    <fragment
+        android:id="@+id/myMoviesListFragment"
+        android:name="com.freesher.mymovielist.my_movies_list.MyMoviesList"
+        android:label="My movies"
+        tools:layout="@layout/fragment_my_movies_list" >
+        <action
+            android:id="@+id/fromMyMoviesToMovieDetails"
+            app:destination="@id/movieDetailsFragment"
+            app:popUpTo="@id/myMoviesListFragment" />
+    </fragment>
+
 </navigation>

@@ -72,4 +72,22 @@ class MovieDetailsViewModel : ViewModel() {
             }
 
     }
+
+    fun checkIsMovieInUserList(id:String){
+        val userId = FirebaseAuth.getInstance().currentUser?.uid
+        val userListDatabase = firebaseDatabase.getReference("/${NODE_USERS}/${userId}")
+        userListDatabase.child(id).addListenerForSingleValueEvent(object: ValueEventListener{
+            override fun onCancelled(p0: DatabaseError) {
+                TODO("not implemented")
+            }
+
+            override fun onDataChange(snapshot: DataSnapshot) {
+                if(snapshot.exists()){
+                    _isFavorite.value = true
+                }else{
+                    _isFavorite.value = false
+                }
+            }
+        })
+    }
 }

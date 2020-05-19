@@ -48,6 +48,7 @@ class MovieDetailsFragment : Fragment() {
         val id = args.movieId
         viewModel.getDetailsAboutMovieById(id)
         progressBar2.visibility = View.VISIBLE
+        viewModel.checkIsMovieInUserList(id)
 
     }
 

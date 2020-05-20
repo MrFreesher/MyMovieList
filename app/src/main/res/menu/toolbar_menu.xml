@@ -5,7 +5,8 @@
         android:id="@+id/signOut"
         android:title="Sign out"
         android:visible="true"
-        app:showAsAction="never" />
+        android:icon="@drawable/ic_exit_24dp"
+        app:showAsAction="always" />
     <item
         android:id="@+id/favorite"
         android:title="Favorite"

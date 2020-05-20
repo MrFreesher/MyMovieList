@@ -35,12 +35,19 @@
 
             android:hint="Year" />
         <EditText
-            android:id="@+id/movieShortDescription"
+        android:id="@+id/movieShortDescription"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="15dp"
+        android:layout_marginEnd="15dp"
+        android:hint="Short Description" />
+        <EditText
+            android:id="@+id/movieDirector"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginStart="15dp"
             android:layout_marginEnd="15dp"
-            android:hint="Short Description" />
+            android:hint="Director" />
 <Button
     android:id="@+id/addMoviesButton"
     android:layout_marginTop="10dp"

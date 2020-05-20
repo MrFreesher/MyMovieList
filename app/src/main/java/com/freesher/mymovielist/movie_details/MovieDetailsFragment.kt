@@ -38,6 +38,7 @@ class MovieDetailsFragment : Fragment() {
                 movieTitleContent.text = it.title
                 movieShortDescriptionContent.text = it.shortDescription
                 movieYearContent.text = it.year.toString()
+                movieDirectorContent.text = it.director
                 progressBar2.visibility = View.GONE
                 movieDetails.visibility = View.VISIBLE
             }

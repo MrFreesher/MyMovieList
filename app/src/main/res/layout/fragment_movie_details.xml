@@ -72,6 +72,22 @@
             android:layout_marginBottom="10dp"
             android:text="TextView"
             android:textSize="24sp" />
+        <TextView
+            android:id="@+id/movieDirectorLabel"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="10dp"
+            android:text="Director"
+            android:textSize="26sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/movieDirectorContent"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="10dp"
+            android:text="TextView"
+            android:textSize="24sp" />
     </LinearLayout>
 
 </FrameLayout>

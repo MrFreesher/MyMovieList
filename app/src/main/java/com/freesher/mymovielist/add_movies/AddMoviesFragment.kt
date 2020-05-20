@@ -37,15 +37,18 @@ class AddMoviesFragment : Fragment() {
             val title = movieTitle.text.toString().trim()
             val year = movieYear.text.toString().trim()
             val shortDescription = movieShortDescription.text.toString().trim()
+            val director = movieDirector.text.toString().trim()
             val isTitleNotEmpty = checkIsTitleNotEmpty(title)
             val isYearValid = validateYear(year)
             val isShortDescriptionNotEmpty = checkIsShortDescriptionNotEmpty(shortDescription)
+            val isDirectorNotEmpty = checkIsDirectorNotEmpty(director)
 
-            if (isTitleNotEmpty && isYearValid && isShortDescriptionNotEmpty) {
+            if (isTitleNotEmpty && isYearValid && isShortDescriptionNotEmpty && isDirectorNotEmpty) {
                val movie = Movie()
                 movie.title = title
                 movie.shortDescription = shortDescription
                 movie.year = year.toInt()
+                movie.director = director
                 viewModel.addMovie(movie)
 
 
@@ -80,6 +83,15 @@ class AddMoviesFragment : Fragment() {
             movieShortDescription.error = "Empty short description"
             return false
         } else {
+            return true
+        }
+    }
+
+    private fun checkIsDirectorNotEmpty(director:String):Boolean{
+        if(director.isEmpty()){
+            movieDirector.error = "Empty director"
+            return false
+        }else{
             return true
         }
     }

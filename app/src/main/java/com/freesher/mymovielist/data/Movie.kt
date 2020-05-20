@@ -7,5 +7,6 @@ data class Movie(
     var id: String? = null,
     var title: String? = null,
     var year: Int? = null,
-    var shortDescription: String? = null
+    var shortDescription: String? = null,
+    var director:String? = null
 )

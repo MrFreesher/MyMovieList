@@ -50,7 +50,7 @@ class AddMoviesFragment : Fragment() {
                 movie.year = year.toInt()
                 movie.director = director
                 viewModel.addMovie(movie)
-
+                clearFields()
 
 
 
@@ -114,6 +114,13 @@ class AddMoviesFragment : Fragment() {
         } else {
             return false
         }
+    }
+    fun clearFields(){
+        movieTitle.setText("")
+        movieShortDescription.setText("")
+        movieDirector.setText("")
+        movieYear.setText("")
+
     }
 
 }

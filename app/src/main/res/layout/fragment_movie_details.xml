@@ -12,7 +12,9 @@
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal|center_vertical"
         android:visibility="gone" />
-
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
     <LinearLayout
         android:id="@+id/movieDetails"
         android:layout_width="match_parent"
@@ -89,5 +91,5 @@
             android:text="TextView"
             android:textSize="24sp" />
     </LinearLayout>
-
+    </ScrollView>
 </FrameLayout>

@@ -29,8 +29,6 @@
                 android:hint="Write title of movie"
                 android:layout_weight="10"
                 android:inputType="text"
-
-
                 android:id="@+id/movieTitleInput"/>
 
             <Button

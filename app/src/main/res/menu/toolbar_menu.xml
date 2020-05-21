@@ -5,6 +5,7 @@
         android:id="@+id/signOut"
         android:title="Sign out"
         android:visible="true"
+        android:orderInCategory="-1"
         android:icon="@drawable/ic_exit_24dp"
         app:showAsAction="always" />
     <item
